@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+    <Parameter name="configDir" value="/usr/local/tomcat/.ncWMS2" override="false"/>
+    <Parameter name="paletteDirs" value="/usr/local/tomcat/.ncWMS2/palettes" override="false"/>
+    <Parameter name="styleDirs" value="/usr/local/tomcat/.ncWMS2/styles" override="false"/>
+</Context>
