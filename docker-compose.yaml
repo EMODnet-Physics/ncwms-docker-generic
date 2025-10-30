@@ -9,6 +9,7 @@ services:
       TOMCAT_GROUP_ID: '2000'
       TOMCAT_USER_ID: '2000'
       UMASK: '0002'
+      DISABLE_CORS: 1
       ncwmspassword: customncwmspassword
     build: .
     ports:
