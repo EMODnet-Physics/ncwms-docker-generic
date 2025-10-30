@@ -33,6 +33,16 @@ if [ "$1" = 'start-tomcat.sh' ] || [ "$1" = 'catalina.sh' ]; then
     sync
 
     ###
+    # Deactivate CORS filter in web.xml if DISABLE_CORS=1
+    # Useful if CORS is handled outside of Tomcat (e.g. in a proxying webserver like nginx)
+    ###
+    if [ "$DISABLE_CORS" == "1" ]; then
+      echo "Deactivating Tomcat CORS filter"
+      sed -i 's/<!-- CORS_START.*/<!-- CORS DEACTIVATED BY DISABLE_CORS -->\n<!--/; s/^.*<!-- CORS_END -->/-->/' \
+        ${CATALINA_HOME}/conf/web.xml
+    fi
+
+    ###
     # ETT Custom user
     usermod -a -G usremodnetdata tomcat
     ###
